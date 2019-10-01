@@ -11,7 +11,7 @@ namespace PDFCloudCCExample.Controllers
     public class ConvertController : ControllerBase
     {
         private const string BaseProductUri = @"https://api-qa.aspose.cloud";
-        protected const string TestDataFolder = @"..\..\..\..\TestData";
+        protected const string TestDataFolder = @"TestData";
 
         [HttpGet]
         public FileStreamResult Get()
@@ -26,7 +26,7 @@ namespace PDFCloudCCExample.Controllers
             PdfApi api = new PdfApi(new Configuration(null, null, BaseProductUri));
             api.ApiClient.AccessToken = authorizationHeader.Parameter;
 
-            string name = "4pages.pdf";
+            string name = "test.pdf";
             using (Stream stream = System.IO.File.OpenRead(Path.Combine(TestDataFolder, name)))
             {
                 string resFileName = "result.doc";
