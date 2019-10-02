@@ -16,11 +16,10 @@ namespace PDFCloudCCExample.Controllers
         [HttpGet]
         public FileStreamResult Get()
         {
-            AuthenticationHeaderValue authorizationHeader;
-            AuthenticationHeaderValue.TryParse(Request.Headers["Authorization"], out authorizationHeader);
+            AuthenticationHeaderValue.TryParse(Request.Headers["Authorization"], out AuthenticationHeaderValue authorizationHeader);
             if (authorizationHeader == null)
             {
-                throw new System.Exception("401");
+                throw new ApiException(401, "Unauthorized");
             }
 
             PdfApi api = new PdfApi(new Configuration(null, null, BaseProductUri));
