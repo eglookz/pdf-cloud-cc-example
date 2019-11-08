@@ -1,4 +1,4 @@
 name: pccce
 repository: https://github.com/eglookz/pdf-cloud-cc-example.git
-runtime: netcore
+runtime: netcoreapp2.2
 entrypoint: dotnet PDFCloudCCExample.dll
